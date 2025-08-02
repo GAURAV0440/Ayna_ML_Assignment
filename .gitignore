@@ -22,3 +22,5 @@ wandb/
 
 # Dataset
 data/
+
+models/
