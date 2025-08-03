@@ -59,3 +59,45 @@ Predicted colored polygon
 .pth model file is ignored in Git due to size limits
 The dataset is not included in the repo — download manually
 The project works on both Google Colab and local Ubuntu setup
+
+
+Insights Report – Ayna ML Assignment
+Hyperparameters Tried
+Epochs: 20
+Batch Size: 8
+Learning Rate: 1e-4
+Optimizer: Adam
+Loss Function: L1Loss (better for smoother output than MSELoss)
+Input Size: 128×128 (resized all images)
+
+Model Design & Choices
+Used a UNet architecture with skip connections and 4 encoder–decoder levels.
+Input has 4 channels:
+1 grayscale image (polygon shape)
+3-channel RGB color condition
+Output is 3-channel RGB colored polygon.
+The model was trained from scratch, and no pretrained weights were used.
+
+Training Trends
+Trained over 20 epochs.
+
+Validation loss decreased steadily, showing model generalization.
+
+L1Loss provided visually smoother results, reducing color bleed or sharp edges.
+Final Train Loss ≈ Lower than initial by over 40%
+Final Validation Loss: consistent with training loss trend
+
+Observed Failure Cases
+Slight deviations from exact RGB shades in a few cases (e.g., cyan looked bluish).
+Model performance improved with increased training epochs.
+
+Key Learnings
+Learned how to condition a UNet model on both image and color vectors.
+Understood the impact of loss functions — L1Loss gave more visually coherent output than MSE.
+Used Weights & Biases (wandb) to monitor training trends in real-time.
+Built a clean training pipeline with reusable components (model, utils, dataset).
+
+Future Improvements
+Add data augmentation (rotation, noise) to improve generalization.
+Try perceptual loss (like SSIM) for sharper and color-faithful outputs.
+Move toward a conditional diffusion or attention-based architecture for complex variations.
