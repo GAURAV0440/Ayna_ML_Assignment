@@ -27,22 +27,7 @@ It involves building a deep learning model (UNet) that takes a polygon image and
 - Jupyter Notebook
 
 ---
-
-## Project Structure
-ayna-ml-assignment/
-│
-├── data/ # Dataset folder (training & validation)
-├── models/ # Trained model (.pth file) [ignored in Git]
-├── notebooks/
-│ └── inference.ipynb # Testing and visualization notebook
-├── src/
-│ ├── model.py # UNet model definition
-│ ├── train.py # Training script
-│ └── utils.py # Custom dataset class & helper functions
-│
-├── requirements.txt # Python dependencies
-├── .gitignore # Ignored files (e.g., models/)
-└── README.md # This file
+<img width="459" height="398" alt="image" src="https://github.com/user-attachments/assets/b2a24978-ba6c-464a-9063-4fef995fdd7b" />
 
 
 ---
