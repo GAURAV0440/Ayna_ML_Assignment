@@ -61,43 +61,42 @@ The dataset is not included in the repo — download manually
 The project works on both Google Colab and local Ubuntu setup
 
 
-Insights Report – Ayna ML Assignment
+Insights Report
 Hyperparameters Tried
 Epochs: 20
 Batch Size: 8
 Learning Rate: 1e-4
 Optimizer: Adam
-Loss Function: L1Loss (better for smoother output than MSELoss)
-Input Size: 128×128 (resized all images)
+Loss Function: L1Loss (gave smoother output than MSELoss)
+Input Size: 128×128 (all images resized)
 
 Model Design & Choices
-Used a UNet architecture with skip connections and 4 encoder–decoder levels.
-Input has 4 channels:
-1 grayscale image (polygon shape)
-3-channel RGB color condition
-Output is 3-channel RGB colored polygon.
-The model was trained from scratch, and no pretrained weights were used.
+Used a UNet architecture with 4 encoder–decoder levels and skip connections.
+Input:
+1-channel grayscale polygon image
+3-channel RGB color tensor (as condition)
+Combined into 4-channel input
+Output: 3-channel RGB image
+Trained from scratch, no pretrained weights used.
 
 Training Trends
-Trained over 20 epochs.
-
-Validation loss decreased steadily, showing model generalization.
-
-L1Loss provided visually smoother results, reducing color bleed or sharp edges.
-Final Train Loss ≈ Lower than initial by over 40%
-Final Validation Loss: consistent with training loss trend
+Model trained over 20 epochs.
+Validation loss decreased steadily, showing good generalization.
+L1Loss led to smoother color transitions and less edge artifacts.
+Final Train Loss dropped by ~40%
+Final Validation Loss followed the same downward trend
 
 Observed Failure Cases
-Slight deviations from exact RGB shades in a few cases (e.g., cyan looked bluish).
-Model performance improved with increased training epochs.
+Slight mismatch in exact color tone (e.g., cyan appeared slightly bluish)
+Performance improved with more training.
 
 Key Learnings
-Learned how to condition a UNet model on both image and color vectors.
-Understood the impact of loss functions — L1Loss gave more visually coherent output than MSE.
-Used Weights & Biases (wandb) to monitor training trends in real-time.
-Built a clean training pipeline with reusable components (model, utils, dataset).
+Understood how to condition a UNet model using image + color input
+Compared effect of loss functions (MSE vs L1)
+Used Weights & Biases for tracking and logging
+Built a modular PyTorch pipeline (model, dataloader, training, inference)
 
 Future Improvements
-Add data augmentation (rotation, noise) to improve generalization.
-Try perceptual loss (like SSIM) for sharper and color-faithful outputs.
-Move toward a conditional diffusion or attention-based architecture for complex variations.
+Add data augmentation (e.g., rotation, scaling)
+Try perceptual loss (SSIM) for better visual fidelity
+Explore conditional diffusion or attention-based networks for more complex input-output control
