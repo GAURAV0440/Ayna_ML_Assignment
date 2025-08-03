@@ -27,6 +27,7 @@ It involves building a deep learning model (UNet) that takes a polygon image and
 - Jupyter Notebook
 
 ---
+## 📁 Project Structure
 <img width="459" height="398" alt="image" src="https://github.com/user-attachments/assets/b2a24978-ba6c-464a-9063-4fef995fdd7b" />
 
 
